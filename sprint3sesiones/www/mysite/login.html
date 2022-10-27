@@ -1,5 +1,7 @@
-n<html>
-  <head><meta charset="UFT-8"></head>
+<html>
+  <head>
+    <meta charset="UFT-8">
+  </head>
   <body>
     <h1>Login</h1>
     <form action="login.php" method="post">
@@ -7,6 +9,23 @@ n<html>
     <input name="f-password" type="text" placeholder="Contraseña"><br>
     <input type="submit" value="Iniciar Sesión">
     </form>
+    <script>
+      document.addEventListener("DOMContentLoaded", function(event){
+        document.getElementById('formulario').addEventListener('submit', validarFormulario)
+      });	
+      function validarFormulario(e){
+        e.preventDefault();	
+        if(this.querySelector('[name="f_email"]').value ==''){
+          alert("Introduce el email del usuario");
+          return;
+        }
+        if (this.querySelector('[name="f_password"]').value.length <1){
+          alert("La contraseña no es correcta");
+          return;
+        }
+        this.submit();
+      }
+    </script>
    </body>
 </html>
 
